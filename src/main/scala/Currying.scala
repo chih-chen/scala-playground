@@ -18,5 +18,15 @@ object Currying {
     }
 
     println(sumIntervalOfSugar(n => n * n)(1, 3))
+
+    type Future[T] = T => Unit
+
+    def makeCoffe[K]: Future[K] = {
+      name => println(s"Made coffe for $name")
+    }
+
+    makeCoffe("Chih")
+    makeCoffe(123)
+    makeCoffe(true)
   }
 }
